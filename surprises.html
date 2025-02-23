@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprises</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #ffcccb;
+            text-align: center;
+            padding: 50px;
+            font-family: Arial, sans-serif;
+        }
+        .surprise-container {
+            margin: 20px;
+        }
+        .hidden-img {
+            display: none;
+            width: 300px;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .btn {
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var passkey = prompt("Enter the passkey to access special moments:");
+        if (passkey !== "564585") {
+            alert("Incorrect passkey! Access Denied.");
+            window.location.href = "index.html"; 
+        }
+    </script>
+    <a href="index.html" class="home-button">🏠 Home</a>
+    <h1>🎉 Special Surprises for You! 🎁</h1>
+
+    <div class="surprise-container">
+        <button class="btn btn-primary" onclick="revealSurprise('surprise1')">Click for Surprise 1</button>
+        <img id="surprise1" class="hidden-img" src="IMG_0420.JPG" alt="Surprise Image 1">
+    </div>
+
+    <div class="surprise-container">
+        <button class="btn btn-success" onclick="revealSurprise('surprise2')">Click for Surprise 2</button>
+        <img id="surprise2" class="hidden-img" src="giphy.gif" alt="Hair Dryer GIF">
+    </div>
+
+    <div class="surprise-container">
+        <button class="btn btn-danger" onclick="revealSurprise('surprise3')">Click for Surprise 3</button>
+        <img id="surprise3" class="hidden-img" src="image2.jpeg" alt="Surprise Image 2">
+    </div>
+
+    <script>
+        function revealSurprise(id) {
+            document.getElementById(id).style.display = "block";
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Moments</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #fff8dc;
+            text-align: center;
+            padding: 20px;
+        }
+        .moment-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .moment-card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var passkey = prompt("Enter the passkey to access special moments:");
+        if (passkey !== "564585") {
+            alert("Incorrect passkey! Access Denied.");
+            window.location.href = "index.html"; 
+        }
+    </script>
+    <a href="index.html" class="home-button">🏠 Home</a>
+    <div class="container">
+        <h1 class="mb-4">💖 Special Moments 💖</h1>
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="moment-card" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://drive.google.com/file/d/1LBcKfm_bKzdGamjxaI3IBXB7QS_HTZyF/view?usp=drive_link">
+                    <h3>🍔 Foodie Personality</h3>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="moment-card" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://drive.google.com/file/d/1jL4wucHmsYW5pYDX_PRK8Rbj-qlLRaeN/view?usp=drive_link">
+                    <h3>😁 Happy Happy</h3>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="moment-card" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://drive.google.com/file/d/16eCZ6qbTW61E9I6ziMXvfz2ogsiqsPGC/view?usp=drive_link">
+                    <h3>😍 Pyaaru Personality</h3>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="moment-card" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://drive.google.com/file/d/1AUFUEiTSt6Q_x6Z27zNuIgxrgCrQJYH5/view?usp=drive_link">
+                    <h3>😎 Self Obsessed One</h3>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="moment-card" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://drive.google.com/file/d/1BBg2B5n_pDPzYMpf7PKWIYgi8BplLHZS/view?usp=drive_link">
+                    <h3>😂 Weirdo Personality</h3>
+                </div>
+            </div>
+	    <div class="col-md-4">
+                <div class="moment-card" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="">
+                    <h3>🥵 HOttie Hottie </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="videoTitle">Video</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p>Click the button below to watch:</p>
+                    <a id="videoLink" href="#" target="_blank" class="btn btn-primary">Watch Video 🎥</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let momentCards = document.querySelectorAll(".moment-card");
+            momentCards.forEach(card => {
+                card.addEventListener("click", function() {
+                    let videoLink = this.getAttribute("data-video");
+                    let title = this.querySelector("h3").innerText;
+                    document.getElementById("videoTitle").innerText = title;
+                    document.getElementById("videoLink").href = videoLink;
+                });
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
